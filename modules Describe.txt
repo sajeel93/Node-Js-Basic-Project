@@ -1,0 +1,60 @@
+Bcryptjs: It's use for Security (password security) on Database
+	  salt: it's make unique password
+	  hash: password generator(Like md5 generator etc)
+	  For (models/user)
+
+express-session: three different thing for session (secret, resave, 		 		 saveUninitialized) (https://github.com/expressjs/session)
+
+express-validator: Middleware Options (https://github.com/ctavan/express-validator)
+
+
+PassportJs: It's a middleware for node js, (Local & regular, facebook, 	   	    Google)Strategy Login
+
+
+
+
+Project Details:
+First of all, we need to install globally express-generator, second things is install (express nodetest1, OR express --views=handlebars project2),
+then required all modules in the top (including passport LocalStrategy) with mongoose.connect for Database, 
+then add express session coding
+then add express validator coding through given website
+then add flash
+then add Global variables for messages
+then add Passport initialize & passport session coding
+then add Registration and Login routes in (routes/users.js)
+then create models folder and user.js file
+then we can add bootStrap files
+then add Register user coding in users.js roudes with post method
+then add Validation Coding
+create errors variable for validation
+then if errors are exist on registration so add this coding on if statment (res.render('register')), after that, I will add javascript coding in 
+register.hbs file
+then required mongoose and bcryptjs modules in models (user.js) file
+add mongoose.connect coding for database
+add user schema coding (mongoose.Schema through https://github.com/madhums/mongoose-user)
+create User variable for (outside access of this file), User = module.exports
+Then Add module.exports.createUser variable (for newUser, salt hash),then add bcryptjs asynchronously coding in callback function through https://www.npmjs.com/package/bcryptjs
+coding edit(add newUser.password parameter and variable)
+then required (model user.js) file in (routes users.js) and create newUser variable in else statment and then add createUser function into the models file 
+after that, add flash success msg and redirect login
+then add javascript coding in layout.hbs for success and error messages
+
+first of all for login, 
+require passport and LocalStrategy modules in the top of this file routes users.js 
+we need to add passport authenticate coding through http://passportjs.org/docs/authenticate in routes users.js file
+edit this coding add other parameter in passport.authenticate (successRedirect, failureRedirect and failureFlash)and only add res.redirect in callback function and change app.post to router.post
+(It's a local strategy)
+and also add username & password config coding through website
+edit this coding and add two function (User.getUserByUsername) & (comparePassword)
+now add these two functions in the model user.js file
+add module.exports.getUserByUsername and add query variable
+add module.exports.comparePassword and bcrypt.compare coding add in under function and change second parameter isMatch
+we need serialize and deserialize function (pick this coding through passportjs website config), put this coding in routes users.js file
+edit deserialized coding (findById to getUserById)
+add module.exports.getUserById function in models user.js file
+check now (It's working fine OR not)
+then add logout coding in routes users.js file
+add 1 line in global variables for menu logout in app.js
+
+
+
